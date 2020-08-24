@@ -1,0 +1,8 @@
+---
+ - name: Search and Replace the content
+   hosts: appservers
+   become: yes
+   tasks:
+   - name: Use replace module 
+     replace: dest=/etc/httpd/conf/httpd.conf regexp='AllowOverride None' replace='AllowOverride Authconfig'
+

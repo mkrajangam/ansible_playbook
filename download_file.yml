@@ -1,0 +1,17 @@
+---
+ - name: To understand the get_url module
+   hosts: localhost 
+   ignore_errors: yes
+   become: yes
+   tasks:
+   - name: download the tomcat7 from URL
+     get_url: url=http://apachemirror.wuchna.com/tomcat/tomcat-7/v7.0.105/bin/apache-tomcat-7.0.105.tar.gz dest=/tmp
+
+#   - name: untar tomcat7 file
+#     shell: tar -czvf /tmp/apache-tomcat-7.0.105.tar.gz dest=/opt/
+
+#   - name: download the tomcat8 from URL
+#     get_url: url=http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz dest=/opt
+   
+#   - name: untar tomcat8 file
+#     shell: tar -czvf /tmp/apache-tomcat-9.0.37.tar.gz dest=/opt

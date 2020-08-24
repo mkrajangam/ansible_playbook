@@ -1,0 +1,25 @@
+#!/bin/bash
+
+Ubuntu=$(lsb_release -d  | awk 'NR=1 {print $2}')
+CentOS=$(lsb_release -d  | awk 'NR=1 {print $2}')
+Git_Ver=$(git --version | awk '{print $3}')
+
+if [ $Ubuntu == "Ubuntu" ]
+then
+	Apache_Ver=$(/usr/sbin/apache2 -version | awk 'NR=1 {print $3}' | head -1)
+	cat  << EOF
+        { "Git Version": "$Git_Ver",
+          "Apache2 Version": "$Apache_Ver"
+        }
+EOF
+
+else
+	Http_Ver=$(/usr/sbin/httpd -version | awk 'NR=1 {print $3'} | head -1)
+	cat  << EOF
+        { "Git Version": "$Git_Ver",
+          "Http Version": "$Http_Ver"
+        }
+EOF
+
+fi
+

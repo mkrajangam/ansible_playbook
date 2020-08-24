@@ -1,0 +1,20 @@
+---
+ - name: Getting Input and display 
+   hosts: localhost
+   vars:
+    my_name: "Rajangam"
+    my_age: 43
+   vars_prompt:
+    - name: user_name
+      prompt: Enter your user name
+      private: no
+    - name: password
+      prompt: Enter your password
+      private: yes
+   gather_facts: false
+   tasks:
+   - name: Display User name and Password
+     debug:
+      msg: 
+       - "The username is: {{ user_name }} and password is: {{ password }}"
+       - "My name is {{ my_name }} and my age is {{my_age}}"

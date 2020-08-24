@@ -1,0 +1,33 @@
+---
+ - name: To understand the command arguments & Package Installations
+   hosts: all
+   gather_facts: yes
+   become: yes
+#   vars_prompt:
+#    - name: os_name       
+#      prompt: Please enter the OS distributions[CentOS/Ubuntu]
+#      private: no 
+                   
+   tasks:
+   - name: Working with Debian family
+     apt:
+      name: "{{ pkg }}"
+      state: "{{ req_state }}"
+#     purge: yes
+      force: yes
+     when: ansible_distribution == "Ubuntu"
+     ignore_errors: True
+#    when: ansible_distribution == "${os_name}"
+ 
+   - name: Working with RedHat family
+     yum:
+      name: "{{ pkg }}"
+      state: "{{ req_state }}"
+     when: ansible_distribution == "CentOS"
+     ignore_errors: True
+#     when:  ansible_distribution == "CentOS" and "{pkg}" == "httpd"
+#   - name: Display OS name
+#     debug:
+#      msg:
+#       - "The name of OS is: {{ os_name }}"
+

@@ -1,0 +1,11 @@
+192.168.5.134 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_processor": [
+            "0", 
+            "GenuineIntel", 
+            "Intel(R) Core(TM) i3-3227U CPU @ 1.90GHz"
+        ], 
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false
+}

@@ -1,0 +1,14 @@
+---
+ - name: Display given the message 
+   hosts: appservers
+   vars:
+    my_name: "Rajangam"
+    my_age: 43
+   gather_facts: false
+   tasks:
+   - name: Display My Name and Age
+     debug:
+ #    msg: My Name is is: {{ my_name }} and Age is: {{ my_age }} 
+      msg: 
+       - "The My Name is: {{ my_name }}" 
+       - "Age  is: {{ my_age }}"

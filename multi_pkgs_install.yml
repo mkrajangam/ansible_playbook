@@ -1,0 +1,26 @@
+---
+ - name: To Install the multiple packages 
+   hosts: appservers
+   become: yes
+   ignore_errors: yes
+   vars:
+     pkg:
+      pkg1: httpd
+      pkg2: vsftpd
+      pkg3: elinks
+   tasks:
+   
+   - name: display the packages list
+     debug:
+        msg: "The packages to be installed are {{pkg.pkg1}}, {{pkg.pkg2}} and {{pkg.pkg3}}"
+   
+   - name: Install the above packages
+     yum: name={{pkg.pkg1}},{{pkg.pkg2}},{{pkg.pkg3}} state=present
+   
+   - name: display the packages version
+     command: "{{item}}"
+     with_items:
+     - /usr/sbin/httpd -version
+     - /usr/sbin/vsftpd -version
+     - /usr/bin/elinks -version
+     tags: pkg_ver  

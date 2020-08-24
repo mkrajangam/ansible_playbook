@@ -1,0 +1,8 @@
+---
+ - name: Search and Replace the content
+   hosts: appservers
+   become: yes
+   tasks:
+   - name: Use lineinfile module 
+     lineinfile: dest=/var/www/html/index.html regexp='World' line='Welcome to Ansible Playbooks'
+

@@ -1,0 +1,15 @@
+---
+ - name: To understand the vars concept in ansible 
+   hosts: all
+   gather_facts: false
+   vars:
+    var2: value_from_play
+   tasks:
+   - name: Task1 which uses the vars
+     vars:
+      var1: value_from_task
+     debug:
+      msg: "The value of var1 is {{ var1 }}"
+   - name: Task2 which uses the vars
+     debug:
+      msg: The value of var2 is {{ var2 }}

@@ -1,0 +1,6 @@
+---
+ - name: Install the apache via roles
+   hosts: appservers
+   roles:
+    - apache
+   become: yes

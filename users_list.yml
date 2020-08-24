@@ -1,0 +1,7 @@
+---
+user_details:
+  - { name: user1, groups: admin }
+  - { name: user2, groups: admin }
+  - { name: user3, groups: admin }
+  - { name: user4, groups: admin }
+  - { name: user5, groups: admin }

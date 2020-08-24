@@ -1,0 +1,5 @@
+---
+ - name: install the vsftpd package
+   yum: name=vsftpd state=latest 
+   notify:
+   - restart vsftpd 

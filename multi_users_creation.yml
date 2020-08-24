@@ -1,0 +1,31 @@
+---
+ - name: Multiple Users creation 
+   hosts: all
+   become: true
+   vars_files:
+   - /home/ansadmin/ansible_prod/users_list.yml
+   - /home/ansadmin/ansible_prod/multi_secret.yml
+  
+   tasks:
+   
+   - name: add group
+     group: name=admin state=present
+
+   - name: more complex items to add several users
+     user:
+       name: "{{ item.name }}"  
+       groups: "{{ item.groups }}"
+       password: "{{ item.secret }}"
+       state: present
+     with_items: "{{ user_details }}"
+     tags: add_users 
+  
+   - name: remove users
+     user:
+       name: "{{ item.name }}"
+       groups: "{{ item.groups }}"
+       state: absent
+       remove: yes
+     with_items: "{{ user_details }}"
+     tags: delete_users
+

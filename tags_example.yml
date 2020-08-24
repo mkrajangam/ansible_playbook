@@ -1,0 +1,14 @@
+---
+ - name: To understand the Ansible Tags
+   hosts: 192.168.5.134 192.168.5.137
+   ignore_errors: yes
+   tasks:
+   - name: tar the file to webservers
+     shell: tar -zcf /var/tmp/webservers.tar.gz /var/tmp/ans.txt
+     when: inventory_hostname in groups['webservers']
+     tags: nodegroup1
+
+   - name: tar the file to appservers
+     shell: tar -zcf /var/tmp/appservers.tar.gz /var/tmp/ans.txt
+     when: inventory_hostname in groups['appservers']
+     tags: nodegroup2

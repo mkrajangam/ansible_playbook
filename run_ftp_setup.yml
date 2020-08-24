@@ -1,0 +1,6 @@
+---
+ - name: Install the ftp via roles
+   hosts: appservers
+   roles:
+    - ftp
+   become: yes

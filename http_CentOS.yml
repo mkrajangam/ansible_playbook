@@ -1,0 +1,13 @@
+---
+ - name: To install httpd package
+   hosts: appservers
+   become: yes
+   tasks:
+   - name: Install httpd
+     yum: name=httpd state=latest
+   - name: Start the httpd 
+     service: name=httpd state=started enabled=true
+   - name: Create a index.html file
+     copy: content="Welcome to Ansible Playbooks" dest=/var/www/html/index.html force=no mode=0644
+   - name: Enable the firewall
+     firewalld: service=http state=enabled permanent=yes immediate=true   

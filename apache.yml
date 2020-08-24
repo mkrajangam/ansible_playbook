@@ -1,0 +1,19 @@
+---
+- name: Install, Configure and Setup Apache webserver
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: Install httpd Package
+    yum: name=httpd state=present
+  - name: Copy httpd configuration file
+    copy: src=/data/httpd.orignal dest=/etc/httpd/conf/httpd.conf
+  - name: Copy index.html file
+    copy: src=/data/index.html dest=/var/www/html
+    notify:
+    - restart httpd
+  - name: Start and Enable httpd service
+    service: name=httpd state=restarted enabled=yes
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted
+      listen: restart httpd
