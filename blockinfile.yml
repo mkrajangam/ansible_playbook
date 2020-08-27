@@ -1,0 +1,17 @@
+---
+ - name: To Understand the blockinfile 
+   hosts: localhost
+   become: yes
+   ignore_errors: yes
+   tasks:
+   - name: Add mappings to /home/ansadmin/ansible_plybook/hosts1
+     blockinfile:
+       path: /home/ansadmin/ansible_playbook/hosts1
+       block: |
+         {{ item.ip }}          {{ item.name }}
+       marker: "\n# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}\n"
+     loop:
+       - { name: host1, ip: 10.10.1.10 }
+       - { name: host2, ip: 10.10.1.11 }
+       - { name: host3, ip: 10.10.1.12 }
+

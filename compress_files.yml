@@ -1,0 +1,14 @@
+---
+ - name: Create a tar.gz archive of a single file.
+   hosts: all 
+   become: yes
+   ignore_errors: yes
+   tasks:
+   - name: Archive and compress files        
+     archive:
+      path: 
+      - /tmp/*
+      - /var/tmp/*
+      dest: /tmp/ansadmin.tar.gz
+      format: gz
+      force_archive: true

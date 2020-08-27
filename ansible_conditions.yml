@@ -1,0 +1,13 @@
+---
+- name: Start and Stopping the services
+  hosts: all
+  become: yes
+  ignore_errors: yes
+  tasks:
+  -  name: start the postgresql service 
+     service: name=postgresql state=restarted 
+     when: ansible_host == "192.168.5.133"
+
+  -  name: start the sshd service 
+     service: name=sshd state=restarted 
+     when: ansible_host == "192.168.5.137"

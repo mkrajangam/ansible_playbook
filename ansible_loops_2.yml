@@ -1,0 +1,30 @@
+---
+ - name: Create a multiple files 
+   hosts: all
+   become: yes
+   ignore_errors: yes
+   tasks:
+   - name: create files  
+     file: path=/tmp/{{ item }} state=touch 
+     with_items:
+         - file1
+         - file2 
+         - file3
+     tags: create
+
+   - name: add some content 
+     copy: content= "\n{{ ansible_hostname }}\n"  dest=/tmp/{{ item }} 
+     with_items:
+         - file1
+         - file2 
+         - file3
+     tags: content
+
+   - name: create directories  
+     file: path=/tmp/{{ item }} state=directory 
+     with_items:
+         - dir1
+         - dir2 
+         - dir3
+     tags: dir
+...

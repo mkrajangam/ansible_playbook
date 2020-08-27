@@ -1,0 +1,13 @@
+---
+ - name: Install multiple packagaes
+   hosts: appservers
+   become: yes
+   ignore_errors:
+   tasks:
+   - name: Install the packages
+     yum: name {{ item }} state=latest
+     with_items:
+         - httpd
+         - nginx 
+         - wget 
+...

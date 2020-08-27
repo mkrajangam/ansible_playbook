@@ -1,0 +1,16 @@
+---
+- name: Install the multiple packages 
+  hosts: appservers
+  become: yes
+  ignore_errors: yes
+  tasks:
+  - name : Install the pkgs
+    yum:   
+      name: ['httpd', 'wget', 'elinks'] 
+      state: latest
+
+#     yum: name={{ item }} state=latest
+#     with_items:
+#        - httpd
+#        - wget
+#        - elinks     
