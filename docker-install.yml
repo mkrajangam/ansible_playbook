@@ -1,0 +1,19 @@
+---
+- name: Install docker 
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: install python-pip 
+    yum:
+     name: python-pip
+     state: latest
+
+  - name: install docker 
+    pip:
+     name:
+      - docker
+      - requests>=2.20.1
+
+  - name: pull docker image    
+    docker_image:
+          name: traefik

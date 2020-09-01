@@ -1,0 +1,11 @@
+---
+- name: Install docker
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: Docker-PY
+    pip:
+      name: "{{item}}"
+    with_items:
+    - six==1.10.0
+    - docker-py==1.2.3

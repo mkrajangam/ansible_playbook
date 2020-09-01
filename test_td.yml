@@ -1,0 +1,24 @@
+---
+- name: Deploying apache tomcat 
+  hosts: appservers
+  become: yes
+  gather_facts: false
+  ignore_errors: yes
+  vars:
+    req_tomcat_ver: 9.0.37
+    tomcat_url: https://mirrors.estointernet.in/apache/tomcat/tomcat-{{req_tomcat_ver.split('.')[0]}}/v{{req_tomcat_ver}}/bin/apache-tomcat-{{req_tomcat_ver}}.tar.gz
+    tomcat_port: 8090
+
+  tasks: 
+        
+  - name: Downloading required tomcat
+    get_url:
+       url: "{{tomcat_url}}"
+       dest: /usr/local/
+  
+  - name: Extracting downloaded tomcat
+    unarchive:
+       src: "/usr/local/apache-tomcat-{{req_tomcat_ver}}.tar.gz"
+       dest: /usr/local/
+       remote_src: yes
+  

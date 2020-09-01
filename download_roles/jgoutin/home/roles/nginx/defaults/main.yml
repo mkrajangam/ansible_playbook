@@ -1,0 +1,48 @@
+---
+nginx_can_connect_ldap: false
+nginx_can_network_connect: false
+nginx_can_network_connect_db: false
+nginx_can_network_memcache: false
+nginx_can_sendmail: false
+nginx_can_use_cifs: false
+nginx_can_use_fusefs: false
+nginx_can_use_gpg: false
+nginx_hardening: false
+nginx_php_fpm: false
+nginx_resolver: 127.0.0.1
+nginx_security_header_content_security_policy: false
+nginx_security_header_content_security_policy_value: "script-src 'self'"
+nginx_security_header_feature_policy: false
+nginx_security_header_feature_policy_value: "geolocation none;\
+                                             midi none;\
+                                             notifications none;\
+                                             push none;\
+                                             sync-xhr none;\
+                                             microphone none;\
+                                             camera none;\
+                                             magnetometer none;\
+                                             gyroscope none;\
+                                             speaker self;\
+                                             vibrate none;\
+                                             fullscreen self;\
+                                             payment none;"
+nginx_security_header_public_key_pins: false
+nginx_security_header_public_key_pins_backup_pins: []
+nginx_security_header_public_key_pins_max_age: 2592000
+nginx_security_header_referrer_policy: true
+nginx_security_header_x_content_type_options: true
+nginx_security_header_x_download_options: true
+nginx_security_header_x_frame_options: true
+nginx_security_header_x_permitted_cross_domain_policies: true
+nginx_security_header_x_robots_tag: true
+nginx_security_header_x_xss_protection: true
+
+# Define firewalld zone value to use depending on specified source
+nginx_firewalld_zone: "{{ nginx_firewalld_source is defined |
+                       ternary('nginx', 'public') }}"
+
+# Internal values
+_tls_crt: "/etc/pki/tls/certs/{{ nginx_site }}.crt"
+_tls_key: "/etc/pki/tls/private/{{ nginx_site }}.key"
+_tls_ca: "/etc/pki/tls/certs/{{ nginx_site }}.trust.crt"
+_site_conf: "/etc/nginx/conf.d/{{ nginx_site }}.conf"

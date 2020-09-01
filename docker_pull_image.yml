@@ -1,0 +1,7 @@
+---
+- name: Pull ubuntu image
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: pull image
+    docker_image: name=centos

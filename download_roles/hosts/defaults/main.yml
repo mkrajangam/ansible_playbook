@@ -1,0 +1,31 @@
+---
+# defaults file for arillso.hosts
+
+# Backup the hosts file before changing it.
+hosts_backup: false
+
+# Group owner of hosts file.
+hosts_group: root
+
+# Owner of hosts file.
+hosts_owner: root
+
+# Settings for SElinux.
+hosts_serole: object_r
+hosts_setype: net_conf_t
+hosts_seuser: system_u
+hosts_selevel: s0
+
+# Access permission hosts file.
+hosts_mode: 0644
+
+# Creates a 172.0.0.1 entry for the server name.
+hosts_hostname_loopback: true
+
+# Inserts all hosts in the Ansible Inventory
+# file into the Hosts file
+hosts_inventory_to_hosts: false
+
+# Ipv6 localhost entries are set automatically.
+# Setting false it can be prevented.
+hosts_ipv6: true

@@ -1,0 +1,8 @@
+---
+- name: display the python version
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: display 
+    debug: var=hostvars[inventory_hostname]['ansible_python_interpreter']
+...

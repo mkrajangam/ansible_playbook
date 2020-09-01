@@ -1,0 +1,45 @@
+{
+ "collection_info": {
+  "namespace": "jgoutin",
+  "name": "home",
+  "version": "1.2.1",
+  "authors": [
+   "jgoutin"
+  ],
+  "readme": "readme.md",
+  "tags": [
+   "system",
+   "fedora",
+   "clamav",
+   "dovecot",
+   "kodi",
+   "mariadb",
+   "mpd",
+   "nextcloud",
+   "nginx",
+   "php_fpm",
+   "postfix",
+   "postgresql",
+   "redis",
+   "rpmfusion"
+  ],
+  "description": "Home free software self-hosting.",
+  "license": [
+   "GPL-3.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/jgoutin/ansible_home",
+  "documentation": "https://jgoutin.github.io/ansible_home/",
+  "homepage": null,
+  "issues": "https://github.com/jgoutin/ansible_home/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "eab22415eb6db8b641c8e48107b24b5f59ee2c7edabf4c69bece99e8363f9fd5",
+  "format": 1
+ },
+ "format": 1
+}

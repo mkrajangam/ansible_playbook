@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: JGoutin
+  description: This Ansible role installs Nginx on Fedora.
+  license: GPL-3.0
+  min_ansible_version: 2.9
+  platforms:
+    - name: Fedora
+      versions:
+        - 31
+        - 32
+  galaxy_tags:
+    - fedora
+    - system
+    - nginx
+
+dependencies: []
+collections:
+  - ansible.legacy

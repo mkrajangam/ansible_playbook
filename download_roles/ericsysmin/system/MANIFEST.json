@@ -1,0 +1,38 @@
+{
+ "collection_info": {
+  "namespace": "ericsysmin",
+  "name": "system",
+  "version": "1.0.0",
+  "authors": [
+   "Eric Anderson <eric.sysmin@gmail.com> (https://ericsysmin.com)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "system",
+   "chrony",
+   "epel",
+   "logrotate",
+   "ntp",
+   "remi_repo",
+   "selinux",
+   "rhel",
+   "ubuntu"
+  ],
+  "description": "Collection of System Administration Roles",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {},
+  "repository": "https://github.com/ericsysmin/ansible-collection-system",
+  "documentation": "https://github.com/ericsysmin/ansible-collection-system",
+  "homepage": "https://github.com/ericsysmin/ansible-collection-system",
+  "issues": "https://github.com/ericsysmin/ansible-collection-system/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "82ceed101d94852724d3bcc4ba1d1f93675318801e1e62ff958911e5fc5d92e3",
+  "format": 1
+ },
+ "format": 1
+}
